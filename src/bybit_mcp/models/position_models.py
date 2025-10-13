@@ -1,7 +1,7 @@
 # src/bybit_mcp/models/position_models.py
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from .trade_models import BaseApiResponse  # Re-use BaseApiResponse for common fields
 
@@ -28,11 +28,11 @@ class PositionInfoItem(BaseModel):
     takeProfit: str
     stopLoss: str
     trailingStop: str
-    sessionAvgPrice: str  # For USDC contracts
-    delta: str
-    gamma: str
-    vega: str
-    theta: str
+    sessionAvgPrice: Optional[str] = None  # For USDC contracts
+    delta: Optional[str] = None  # Only for options
+    gamma: Optional[str] = None  # Only for options
+    vega: Optional[str] = None   # Only for options
+    theta: Optional[str] = None  # Only for options
     unrealisedPnl: str
     curRealisedPnl: str
     cumRealisedPnl: str
@@ -49,6 +49,8 @@ class PositionInfoItem(BaseModel):
     isReduceOnly: Optional[bool] = None
     mmrSysUpdatedTime: Optional[str] = None
     leverageSysUpdatedTime: Optional[str] = None
+
+    model_config = ConfigDict(extra="allow")
 
 
 class PositionInfoResult(BaseModel):
