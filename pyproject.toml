@@ -1,6 +1,6 @@
 [project]
 name = "bybit-mcp"
-version = "0.1.5"
+version = "0.1.6"
 description = "Bybit MCP Server - Model Context Protocol implementation for Bybit trading API"
 authors = [{ name = "Brian Cusack", email = "briancusack78@gmail.com" }]
 requires-python = ">=3.13"
