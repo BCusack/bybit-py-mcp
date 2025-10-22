@@ -456,8 +456,8 @@ async def handle_list_tools() -> List[Tool]:
                     },
                     "cursor": {
                         "type": "string",
-                        "description": "Cursor for pagination",
-                    },
+                        "description": "Cursor for pagination"
+                    }
                 },
                 "required": ["symbol"],
             },
@@ -493,7 +493,6 @@ async def handle_list_tools() -> List[Tool]:
                         "description": "Symbol name (e.g., BTCUSDT)",
                     },
                 },
-                "required": [],
             },
         ),
         Tool(
@@ -558,38 +557,38 @@ async def handle_list_tools() -> List[Tool]:
                                 "type": "string",
                                 "description": "Trading pair symbol. Examples: 'BTCUSDT', 'ETHUSDT', 'SOLUSDT'",
                                 "examples": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "ADAUSDT"]
-                        },
+                            },
                         "side": {
                                 "type": "string",
                                 "description": "Order side: 'Buy' to purchase, 'Sell' to sell",
                                 "enum": ["Buy", "Sell"]
-                        },
+                            },
                         "orderType": {
                                 "type": "string",
                                 "description": "Order type: 'Market' executes immediately at current price, 'Limit' waits for specific price",
                                 "enum": ["Market", "Limit"]
-                        },
+                            },
                         "qty": {
                                 "type": "string",
                                 "description": "Order quantity. For spot: coin amount (e.g., '0.001' BTC). For derivatives: contract size (e.g., '100' USDT)",
                                 "examples": ["0.001", "100", "1.5", "0.1"]
-                        },
+                            },
                         "price": {
                                 "type": "string",
                                 "description": "Order price. Required for Limit orders, ignored for Market orders. Examples: '50000', '3000.5'",
                                 "examples": ["50000", "3000.5", "0.001", "100.25"]
-                        },
+                            },
                         "isLeverage": {
                                 "type": "integer",
                                 "description": "Use leverage for spot margin trading: 0 = normal spot, 1 = use leverage (spot margin only)",
-                                "enum": [0, 1],
+                                "enum": ["0", "1"],
                                 "default": 0
-                        },
+                            },
                         "orderLinkId": {
                                 "type": "string",
                                 "description": "Custom order ID for tracking. Must be unique. Use for order management and identification",
                                 "examples": ["myorder123", "trade_2024_001", "bot_order_456"]
-                        }
+                            }
                     },
                     "required": ["category", "symbol", "side", "orderType", "qty"]
                 }
@@ -608,27 +607,27 @@ async def handle_list_tools() -> List[Tool]:
                                 "type": "string",
                                 "description": "Trading pair symbol of the order to amend. Examples: 'BTCUSDT', 'ETHUSDT'",
                                 "examples": ["BTCUSDT", "ETHUSDT", "SOLUSDT"]
-                            },
+                                },
                         "orderId": {
                                 "type": "string",
                                 "description": "Bybit's order ID. Either orderId or orderLinkId must be provided. Get this from order placement response or order history",
                                 "examples": ["1234567890123456", "9876543210987654"]
-                            },
+                                },
                         "orderLinkId": {
                                 "type": "string",
                                 "description": "Your custom order ID. Either orderId or orderLinkId must be provided. This is what you set when placing the order",
                                 "examples": ["myorder123", "trade_2024_001", "bot_order_456"]
-                            },
+                                },
                         "qty": {
                                 "type": "string",
                                 "description": "New order quantity. Leave empty if only changing price. Examples: '0.002', '150'",
                                 "examples": ["0.002", "150", "1.5", "0.5"]
-                            },
+                                },
                         "price": {
                                 "type": "string",
                                 "description": "New order price. Leave empty if only changing quantity. Examples: '51000', '3100.5'",
                                 "examples": ["51000", "3100.5", "0.002", "105.75"]
-                            }
+                                }
                     },
                     "required": ["category", "symbol"]
                 }
@@ -647,17 +646,17 @@ async def handle_list_tools() -> List[Tool]:
                                 "type": "string",
                                 "description": "Trading pair symbol of the order to cancel. Examples: 'BTCUSDT', 'ETHUSDT'",
                                 "examples": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "ADAUSDT"]
-                        },
+                            },
                         "orderId": {
                                 "type": "string",
                                 "description": "Bybit's order ID. Either orderId or orderLinkId must be provided. Get this from order placement response or order history",
                                 "examples": ["1234567890123456", "9876543210987654"]
-                        },
+                            },
                         "orderLinkId": {
                                 "type": "string",
                                 "description": "Your custom order ID. Either orderId or orderLinkId must be provided. This is what you set when placing the order",
                                 "examples": ["myorder123", "trade_2024_001", "bot_order_456"]
-                        }
+                            }
                     },
                     "required": ["category", "symbol"]
                 }
@@ -881,7 +880,7 @@ async def handle_list_tools() -> List[Tool]:
                             "triggerDirection": {
                                 "type": "integer",
                                 "description": "Trigger direction: 1 = triggered when price RISES to triggerPrice (for buy-stop/sell-limit breakouts), 2 = triggered when price FALLS to triggerPrice (for stop-loss/buy-limit dips)",
-                                "enum": [1, 2]
+                                "enum": ["1", "2"]
                             },
                             "triggerBy": {
                                 "type": "string",
@@ -917,7 +916,7 @@ async def handle_list_tools() -> List[Tool]:
                             "positionIdx": {
                                 "type": "integer",
                                 "description": "Position index for hedge mode: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": [0, 1, 2],
+                                "enum": ["0", "1", "2"],
                                 "default": 0
                             },
                             "orderLinkId": {
@@ -966,7 +965,7 @@ async def handle_list_tools() -> List[Tool]:
                     "openOnly": {
                         "type": "integer",
                         "description": "Filter by open orders only: 0 = all orders, 1 = open orders only, 2 = closed orders only",
-                        "enum": [0, 1, 2]
+                        "enum": ["0", "1", "2"]
                     },
                     "limit": {
                         "type": "integer",
@@ -1164,7 +1163,7 @@ async def handle_list_tools() -> List[Tool]:
                     "withBonus": {
                         "type": "integer",
                         "description": "Include bonus balance in results: 0 = exclude bonus, 1 = include bonus",
-                        "enum": [0, 1],
+                        "enum": ["0", "1"],
                         "default": 0
                     }
                 },
@@ -1318,7 +1317,7 @@ async def handle_list_tools() -> List[Tool]:
                             "tradeMode": {
                                 "type": "integer",
                                 "description": "Margin mode: 0 = cross margin (shared account balance), 1 = isolated margin (separate position margin)",
-                                "enum": [0, 1]
+                                "enum": ["0", "1"]
                             },
                             "buyLeverage": {
                                 "type": "string",
@@ -1358,7 +1357,7 @@ async def handle_list_tools() -> List[Tool]:
                             "mode": {
                                 "type": "integer",
                                 "description": "Position mode: 0 = One-Way Mode (net position), 3 = Hedge Mode (separate buy/sell positions)",
-                                "enum": [0, 3]
+                                "enum": ["0", "3"]
                             }
                         },
                         "required": ["category", "mode"]
@@ -1383,7 +1382,7 @@ async def handle_list_tools() -> List[Tool]:
                             "positionIdx": {
                                 "type": "integer",
                                 "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": [0, 1, 2]
+                                "enum": ["0", "1", "2"]
                             },
                             "takeProfit": {
                                 "type": "string",
@@ -1453,12 +1452,12 @@ async def handle_list_tools() -> List[Tool]:
                             "autoAddMargin": {
                                 "type": "integer",
                                 "description": "Auto add margin setting: 0 = disabled, 1 = enabled",
-                                "enum": [0, 1]
+                                "enum": ["0", "1"]
                             },
                             "positionIdx": {
                                 "type": "integer",
                                 "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": [0, 1, 2]
+                                "enum": ["0", "1", "2"]
                             }
                         },
                         "required": ["category", "symbol", "autoAddMargin"]
@@ -1488,7 +1487,7 @@ async def handle_list_tools() -> List[Tool]:
                             "positionIdx": {
                                 "type": "integer",
                                 "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": [0, 1, 2]
+                                "enum": ["0", "1", "2"]
                             }
                         },
                         "required": ["category", "symbol", "margin"]
