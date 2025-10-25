@@ -580,9 +580,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                         "isLeverage": {
                                 "type": "integer",
-                                "description": "Use leverage for spot margin trading: 0 = normal spot, 1 = use leverage (spot margin only)",
-                                "enum": ["0", "1"],
-                                "default": 0
+                                "description": "Use leverage for spot margin trading: 0 = normal spot, 1 = use leverage (spot margin only)"
                             },
                         "orderLinkId": {
                                 "type": "string",
@@ -879,8 +877,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                             "triggerDirection": {
                                 "type": "integer",
-                                "description": "Trigger direction: 1 = triggered when price RISES to triggerPrice (for buy-stop/sell-limit breakouts), 2 = triggered when price FALLS to triggerPrice (for stop-loss/buy-limit dips)",
-                                "enum": ["1", "2"]
+                                "description": "Trigger direction: 1 = triggered when price RISES to triggerPrice (for buy-stop/sell-limit breakouts), 2 = triggered when price FALLS to triggerPrice (for stop-loss/buy-limit dips)"
                             },
                             "triggerBy": {
                                 "type": "string",
@@ -915,9 +912,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                             "positionIdx": {
                                 "type": "integer",
-                                "description": "Position index for hedge mode: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": ["0", "1", "2"],
-                                "default": 0
+                                "description": "Position index for hedge mode: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side"
                             },
                             "orderLinkId": {
                                 "type": "string",
@@ -964,8 +959,7 @@ async def handle_list_tools() -> List[Tool]:
                     },
                     "openOnly": {
                         "type": "integer",
-                        "description": "Filter by open orders only: 0 = all orders, 1 = open orders only, 2 = closed orders only",
-                        "enum": ["0", "1", "2"]
+                        "description": "Filter by open orders only: 0 = all orders, 1 = open orders only, 2 = closed orders only"
                     },
                     "limit": {
                         "type": "integer",
@@ -1381,8 +1375,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                             "positionIdx": {
                                 "type": "integer",
-                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": ["0", "1", "2"]
+                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side"
                             },
                             "takeProfit": {
                                 "type": "string",
@@ -1456,8 +1449,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                             "positionIdx": {
                                 "type": "integer",
-                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": ["0", "1", "2"]
+                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side"
                             }
                         },
                         "required": ["category", "symbol", "autoAddMargin"]
@@ -1486,8 +1478,7 @@ async def handle_list_tools() -> List[Tool]:
                             },
                             "positionIdx": {
                                 "type": "integer",
-                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side",
-                                "enum": ["0", "1", "2"]
+                                "description": "Position index: 0 = one-way mode, 1 = hedge-mode Buy side, 2 = hedge-mode Sell side"
                             }
                         },
                         "required": ["category", "symbol", "margin"]
